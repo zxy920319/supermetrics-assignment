@@ -5,6 +5,7 @@ const hello = ref("Hello World!")
 
 <template>
   <div>{{ hello }}</div>
+  <router-view></router-view>
 </template>
 
 <style>

@@ -10,6 +10,26 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useAuthStore } from "@/stores/auth"
+import { getPosts } from "@/client"
+import { ref } from "@vue/reactivity"
+import { onMounted } from "@vue/runtime-core"
+const store = useAuthStore()
+const page = ref(1)
+
+const fetchPosts = async (page) => {
+  const data = {
+    sl_token: store.token,
+    page,
+  }
+  const response = await getPosts(data)
+  return response
+}
+
+onMounted(() => {
+  fetchPosts(page.value)
+})
+</script>
 
 <style lang="scss" scoped></style>

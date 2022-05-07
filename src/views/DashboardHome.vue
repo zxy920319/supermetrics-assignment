@@ -1,21 +1,15 @@
 <template>
-  <div class="min-h-screen bg-gray-200 pb-20">
-    <div class="bg-[#03A9F4] px-3 md:px-8 h-56" />
-
-    <div class="px-20 -mt-24">
-      <div class="container mx-auto max-w-full">
-        <div class="min-h-screen bg-white rounded-xl shadow-md p-4">
-          <ATable :data-source="posts" :columns="columns" :pagination="pagination" :loading="loading" @change="handleChange">
-            <template #bodyCell="{ column, record }">
-              <template v-if="column.key === 'created_time'">
-                {{ formatDateTime(record.created_time) }}
-              </template>
-            </template>
-          </ATable>
-        </div>
-      </div>
+  <DashboardContent>
+    <div class="min-h-screen bg-white rounded-xl shadow-md p-4">
+      <ATable :data-source="posts" :columns="columns" :pagination="pagination" :loading="loading" @change="handleChange">
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'created_time'">
+            {{ formatDateTime(record.created_time) }}
+          </template>
+        </template>
+      </ATable>
     </div>
-  </div>
+  </DashboardContent>
 </template>
 
 <script setup>
@@ -23,6 +17,7 @@ import { useAuthStore } from "@/stores/auth"
 import { getPosts } from "@/client"
 import { reactive, ref } from "@vue/reactivity"
 import { inject, onMounted } from "@vue/runtime-core"
+import DashboardContent from "@/components/DashboardContent.vue"
 import { Table as ATable } from "ant-design-vue"
 import "ant-design-vue/es/table/style/css"
 

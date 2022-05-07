@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import DashboardHome from "@/views/DashboardHome.vue"
+import FeelSmart from "@/views/FeelSmart.vue"
+
 const routes = [
   {
     path: "/",
@@ -10,6 +12,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: DashboardHome,
+  },
+  {
+    path: "/analysis",
+    name: "FeelSmart",
+    component: FeelSmart,
   },
 ]
 

@@ -10,10 +10,10 @@ import formatDateTime from "@/lib/dayjs"
 import { useAuthStore } from "@/stores/auth"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faHouseUser, faBook } from "@fortawesome/free-solid-svg-icons"
+import { faHouseUser, faPieChart } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-library.add(faHouseUser, faBook, faGithub)
+library.add(faHouseUser, faPieChart, faGithub)
 
 const app = createApp(App).use(createPinia()).use(router).use(formatDateTime).component("FontAwesomeIcon", FontAwesomeIcon)
 

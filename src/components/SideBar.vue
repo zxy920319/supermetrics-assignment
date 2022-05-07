@@ -26,15 +26,25 @@
                 Dashboard
               </router-link>
             </li>
+            <li class="rounded-lg mb-4">
+              <router-link
+                to="/analysis"
+                class="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+                active-class="bg-gradient-to-tr from-blue-500 to-blue-700 text-white shadow-md"
+              >
+                <FontAwesomeIcon icon="pie-chart" />
+                Feel Smart
+              </router-link>
+            </li>
           </ul>
 
           <ul class="flex-col min-w-full flex list-none absolute bottom-0">
-            <li class="bg-gradient-to-tr from-blue-500 to-blue-700 px-4 rounded-lg text-white mb-2">
+            <li class="bg-gradient-to-tr from-blue-500 to-blue-700 px-4 rounded-lg mb-2">
               <a
                 href="https://github.com/zxy920319/supermetrics-assignment"
                 target="_blank"
                 rel="noreferrer"
-                class="flex items-center gap-4 text-sm font-light py-3"
+                class="flex items-center gap-4 text-sm font-light py-3 text-white"
               >
                 <FontAwesomeIcon :icon="['fab', 'github']" />
                 GitHub

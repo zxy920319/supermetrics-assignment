@@ -1,11 +1,14 @@
 <script setup>
-import { ref } from "@vue/reactivity"
-const hello = ref("Hello World!")
+import SideBar from "@/components/SideBar.vue"
 </script>
 
 <template>
-  <div>{{ hello }}</div>
-  <router-view></router-view>
+  <div>
+    <SideBar />
+    <div class="md:ml-64">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <style>

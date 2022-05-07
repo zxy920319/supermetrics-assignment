@@ -38,11 +38,11 @@ const columns = [
 ]
 
 const fetchPosts = async (page) => {
-  const data = {
+  const params = {
     sl_token: store.token,
     page,
   }
-  const response = await getPosts(data)
+  const response = await getPosts(params)
   return response
 }
 
@@ -58,5 +58,3 @@ onMounted(async () => {
   loading.value = false
 })
 </script>
-
-<style lang="scss" scoped></style>

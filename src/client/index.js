@@ -23,6 +23,25 @@ const post = async (url, data, config, isGetToken = false) => {
   }
 }
 
+const getPaginated = async (url, config) => {
+  await checkToken()
+  let page = 1
+  let result = []
+
+  try {
+    do {
+      const params = { ...config, page }
+      const response = await client.get(url, { params })
+      page = response.data.data.page === page ? page + 1 : false
+
+      if (page) result = result.concat(response.data.data.posts)
+    } while (page)
+  } catch (error) {
+    throw new Error(error)
+  }
+  return result
+}
+
 const checkToken = async () => {
   const store = useAuthStore()
   const current = new Date().valueOf()
@@ -60,4 +79,13 @@ const getPosts = async (params) => {
   }
 }
 
-export { get, post, getToken, getPosts }
+const getAllPosts = async (params) => {
+  try {
+    const posts = await getPaginated("/posts", params)
+    return posts
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export { get, post, getToken, getPosts, getPaginated, getAllPosts }

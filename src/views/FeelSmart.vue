@@ -74,7 +74,7 @@ const ACardMeta = Meta
 const authStore = useAuthStore()
 const analysisStore = useAnalysisStore()
 const loading = ref(true)
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+const months = dayjs.months()
 const formatDateTime = inject("formatDateTime")
 
 const users = computed(() => {

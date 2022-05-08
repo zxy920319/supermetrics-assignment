@@ -1,0 +1,34 @@
+// Vitest Snapshot v1
+
+exports[`FeelSmart > calls fetchAllPosts on mounted 1`] = `
+"<dashboard-content-stub data-v-4c478579=\\"\\">
+  <div data-v-4c478579=\\"\\">
+    <div class=\\"absolute bg-gray-400 bg-opacity-50 w-full h-full top-0 left-0 z-10 flex items-center justify-center\\" data-v-4c478579=\\"\\" style=\\"display: none;\\">
+      <a-spin-stub tip=\\"Loading...\\" spinning=\\"true\\" size=\\"default\\" wrapperclassname=\\"\\" loading=\\"false\\" data-v-4c478579=\\"\\"></a-spin-stub>
+    </div>
+    <div class=\\"flex flex-wrap justify-start gap-6\\" data-v-4c478579=\\"\\">
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+      <a-card-stub bordered=\\"true\\" loading=\\"false\\" hoverable=\\"true\\" class=\\"user-card\\" data-v-4c478579=\\"\\">
+        <a-comment-stub class=\\"bg-gray-50\\" data-v-4c478579=\\"\\"></a-comment-stub>
+      </a-card-stub>
+    </div>
+  </div>
+</dashboard-content-stub>"
+`;

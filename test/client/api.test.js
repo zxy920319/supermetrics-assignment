@@ -4,8 +4,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest"
 import { createPinia, setActivePinia } from "pinia"
 
 vi.mock("@/client", () => ({
-  get: vi.fn(),
-  post: vi.fn(),
+  get: vi.fn().mockResolvedValue({ data: {} }),
+  post: vi.fn().mockResolvedValue({ data: {} }),
   getPaginated: vi.fn(),
 }))
 

@@ -14,7 +14,7 @@
 
 <script setup>
 import { useAuthStore } from "@/stores/auth"
-import { getPosts } from "@/client"
+import { getPosts } from "@/client/api"
 import { reactive, ref } from "@vue/reactivity"
 import { inject, onMounted } from "@vue/runtime-core"
 import DashboardContent from "@/components/DashboardContent.vue"

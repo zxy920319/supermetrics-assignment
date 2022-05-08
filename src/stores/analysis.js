@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { getAllPosts } from "@/client"
+import { getAllPosts } from "@/client/api"
 
 export const useAnalysisStore = defineStore("analysis", {
   state: () => {

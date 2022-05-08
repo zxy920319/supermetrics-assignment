@@ -1,0 +1,74 @@
+// Vitest Snapshot v1
+
+exports[`DashboardHome > calls fetchPosts on mounted 1`] = `
+"<div class=\\"min-h-screen bg-gray-200 pb-20\\">
+  <div class=\\"bg-[#03A9F4] px-3 md:px-8 h-56\\"></div>
+  <div class=\\"px-20 -mt-24\\">
+    <div class=\\"container mx-auto max-w-full\\">
+      <div class=\\"min-h-screen bg-white rounded-xl shadow-md p-4\\">
+        <div class=\\"ant-table-wrapper\\">
+          <div class=\\"ant-spin-nested-loading\\">
+            <!---->
+            <div class=\\"ant-spin-container\\">
+              <div class=\\"ant-table ant-table-has-fix-right ant-table-empty\\">
+                <!---->
+                <div class=\\"ant-table-container\\">
+                  <div class=\\"ant-table-content\\">
+                    <table style=\\"table-layout: auto;\\">
+                      <colgroup>
+                        <col style=\\"width: 150px;\\">
+                        <col>
+                        <col style=\\"width: 200px;\\">
+                      </colgroup>
+                      <thead class=\\"ant-table-thead\\">
+                        <tr>
+                          <th class=\\"ant-table-cell\\" colstart=\\"0\\" colend=\\"0\\">
+                            <!---->Name
+                            <!---->
+                          </th>
+                          <th class=\\"ant-table-cell\\" colstart=\\"1\\" colend=\\"1\\">
+                            <!---->Comment
+                            <!---->
+                          </th>
+                          <th class=\\"ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first\\" colstart=\\"2\\" colend=\\"2\\" style=\\"position: sticky; right: 0px;\\">
+                            <!---->Commented on
+                            <!---->
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class=\\"ant-table-tbody\\">
+                        <!---->
+                        <tr class=\\"ant-table-placeholder\\">
+                          <td colspan=\\"3\\" class=\\"ant-table-cell\\">
+                            <!---->
+                            <div class=\\"ant-empty ant-empty-normal\\">
+                              <div class=\\"ant-empty-image\\"><svg class=\\"ant-empty-img-simple\\" width=\\"64\\" height=\\"41\\" viewBox=\\"0 0 64 41\\">
+                                  <g transform=\\"translate(0 1)\\" fill=\\"none\\" fill-rule=\\"evenodd\\">
+                                    <ellipse class=\\"ant-empty-img-simple-ellipse\\" fill=\\"#F5F5F5\\" cx=\\"32\\" cy=\\"33\\" rx=\\"32\\" ry=\\"7\\"></ellipse>
+                                    <g class=\\"ant-empty-img-simple-g\\" fill-rule=\\"nonzero\\" stroke=\\"#D9D9D9\\">
+                                      <path d=\\"M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z\\"></path>
+                                      <path d=\\"M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z\\" fill=\\"#FAFAFA\\" class=\\"ant-empty-img-simple-path\\"></path>
+                                    </g>
+                                  </g>
+                                </svg></div>
+                              <p class=\\"ant-empty-description\\">No Data</p>
+                              <!---->
+                            </div>
+                            <!---->
+                          </td>
+                        </tr>
+                      </tbody>
+                      <!---->
+                    </table>
+                  </div>
+                </div>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

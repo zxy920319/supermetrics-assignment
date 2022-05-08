@@ -48,7 +48,7 @@
 
 <script setup>
 import { useAuthStore } from "@/stores/auth"
-import { getAllPosts } from "@/client"
+import { useAnalysisStore } from "@/stores/analysis"
 import DashboardContent from "@/components/DashboardContent.vue"
 import BarChart from "@/components/BarChart.vue"
 import { computed, inject, onMounted, ref } from "@vue/runtime-core"
@@ -71,15 +71,16 @@ import "ant-design-vue/es/tooltip/style/css"
 const { Meta } = ACard
 const ACardMeta = Meta
 
-const store = useAuthStore()
-const posts = ref([])
+const authStore = useAuthStore()
+const analysisStore = useAnalysisStore()
 const loading = ref(true)
 const months = dayjs.months()
 const formatDateTime = inject("formatDateTime")
 
 const users = computed(() => {
   const usersMap = new Map()
-  posts.value.forEach((post) => {
+  if (!analysisStore.posts) return usersMap
+  analysisStore.posts.forEach((post) => {
     if (usersMap.has(post.from_id)) {
       const originPosts = usersMap.get(post.from_id)
       usersMap.set(post.from_id, originPosts.concat(post))
@@ -147,9 +148,9 @@ const fromNow = (time) => {
 
 onMounted(async () => {
   const params = {
-    sl_token: store.token,
+    sl_token: authStore.token,
   }
-  posts.value = await getAllPosts(params)
+  await analysisStore.fetchAllPosts(params)
   loading.value = false
 })
 </script>

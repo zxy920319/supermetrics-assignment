@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="h-screen fixed top-0 md:left-0 overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300"
+      class="h-screen fixed top-0 md:left-0 -left-64 overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300"
     >
       <div class="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
         <a

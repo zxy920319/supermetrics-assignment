@@ -1,18 +1,45 @@
 <template>
   <DashboardContent>
     <div>
-      <div v-show="loading" class="absolute bg-gray-400 bg-opacity-50">
-        <ASpin :loading="loading"> </ASpin>
+      <div v-show="loading" class="absolute bg-gray-400 bg-opacity-50 w-full h-full top-0 left-0 z-10 flex items-center justify-center">
+        <ASpin :loading="loading" tip="Loading..."> </ASpin>
       </div>
       <div class="flex flex-wrap justify-start gap-6">
-        <ACard v-for="user in usersInfo" :key="user" :title="user.name" hoverable class="user-card">
-          <div>Total Number of Posts: {{ user.total }}</div>
-          <div>Average number of characters of his/her posts: {{ user.averageLength }}</div>
-          <div>
-            The number of posts made every month:
-            <ATag v-for="month in user.byMonth.keys()" :key="month">{{ `${month}: ${user.byMonth.get(month)} Posts` }}</ATag>
-          </div>
-          <div>Lonest Post: {{ user.longestPost.message }}</div>
+        <ACard v-for="user in usersInfo" :key="user" hoverable class="user-card">
+          <AComment class="bg-gray-50">
+            <template #actions>
+              <span key="comment-longest">Longest Post</span>
+            </template>
+            <template #author
+              ><a>{{ user.longestPost.from_name }}</a></template
+            >
+            <template #content>
+              <p>{{ user.longestPost.message }}</p>
+            </template>
+            <template #datetime>
+              <ATooltip :title="formatDateTime(user.longestPost.created_time)">
+                <span>{{ fromNow(user.longestPost.created_time) }}</span>
+              </ATooltip>
+            </template>
+          </AComment>
+          <template #cover>
+            <div class="p-4">
+              <ACardMeta :title="user.name">
+                <template #avatar>
+                  <AAvatar>{{ user.name.charAt(0) }}</AAvatar>
+                </template>
+                <template #description>
+                  <div class="flex justify-around mt-2">
+                    <AStatistic title="Total Post" :value="user.total"></AStatistic>
+                    <AStatistic title="Average Characters" :value="user.averageLength"></AStatistic>
+                  </div>
+                </template>
+              </ACardMeta>
+              <div class="flex justify-center mt-8">
+                <BarChart :items="user.byMonth" />
+              </div>
+            </div>
+          </template>
         </ACard>
       </div>
     </div>
@@ -23,17 +50,32 @@
 import { useAuthStore } from "@/stores/auth"
 import { getAllPosts } from "@/client"
 import DashboardContent from "@/components/DashboardContent.vue"
-import { computed, onMounted, ref } from "@vue/runtime-core"
+import BarChart from "@/components/BarChart.vue"
+import { computed, inject, onMounted, ref } from "@vue/runtime-core"
 import dayjs from "dayjs"
-import { Skeleton as ASpin, Card as ACard, Tag as ATag } from "ant-design-vue"
+
+import {
+  Spin as ASpin,
+  Card as ACard,
+  Comment as AComment,
+  Avatar as AAvatar,
+  Statistic as AStatistic,
+  Tooltip as ATooltip,
+} from "ant-design-vue"
 import "ant-design-vue/es/spin/style/css"
 import "ant-design-vue/es/card/style/css"
-import "ant-design-vue/es/tag/style/css"
+import "ant-design-vue/es/comment/style/css"
+import "ant-design-vue/es/avatar/style/css"
+import "ant-design-vue/es/statistic/style/css"
+import "ant-design-vue/es/tooltip/style/css"
+const { Meta } = ACard
+const ACardMeta = Meta
 
 const store = useAuthStore()
 const posts = ref([])
 const loading = ref(true)
 const months = dayjs.months()
+const formatDateTime = inject("formatDateTime")
 
 const users = computed(() => {
   const usersMap = new Map()
@@ -67,7 +109,9 @@ const calcMonthPosts = (userPosts) => {
       byMonth.set(month, 1)
     }
   })
-  return byMonth
+  return Array.from(byMonth, function (item) {
+    return { month: item[0], posts: item[1] }
+  }).reverse()
 }
 
 const calcLongestPost = (userPosts) => {
@@ -97,6 +141,10 @@ const usersInfo = computed(() => {
   return result
 })
 
+const fromNow = (time) => {
+  return dayjs(time).fromNow()
+}
+
 onMounted(async () => {
   const params = {
     sl_token: store.token,
@@ -108,6 +156,6 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .user-card {
-  @apply w-64;
+  @apply w-full md:w-96;
 }
 </style>
